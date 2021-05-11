@@ -4,6 +4,7 @@ import Navbar from './components/navigation/Navbar';
 import Home from './views/Home';
 import Products from './views/Products';
 import Details from './views/Details';
+import LoginView from './views/LoginView';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/products" component={Products} />
           <Route exact path="/details/:id" component={Details} />
+          <Route exact path="/login" component={LoginView} />
         </Switch>
       </div>
 

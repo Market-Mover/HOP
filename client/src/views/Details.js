@@ -5,8 +5,6 @@ import {getOneProduct, setProduct} from '../store/actions/productCatalogActions'
 import {addToCart} from '../store/actions/cartActions'
 
 
-
-
 const Details = () => {
  const id = useParams().id 
  const dispatch = useDispatch()   
