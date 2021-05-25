@@ -8,6 +8,8 @@ const ProductCard = ({product}) => {
   const dispatch = useDispatch();
 
   return (
+    
+    
     <div className="col hover-shadow">
       <div className="card h-100">
         <img

@@ -1,15 +1,32 @@
 import {useRef} from 'react'
+import {useDispatch} from 'react-redux'
+import {registerUser} from '../../store/actions/userActions'
 
 const Register = () => {
+
+ const dispatch = useDispatch() 
 
  const firstName = useRef()
  const lastName = useRef()
  const email = useRef()
  const password = useRef()
 
+ const handleSubmit = (e) => {
+   e.preventDefault()
+   let user = {
+     firstName: firstName.current.value,
+     lastName: lastName.current.value,
+     email: email.current.value,
+     password: password.current.value
+   }
+  //  console.log(user)
+   dispatch(registerUser(user))
+
+ }
+
     return (
         <div>
-             <form>
+             <form onSubmit={handleSubmit}>
   
   <div className="row mb-4">
     <div className="col">

@@ -1,12 +1,23 @@
 import './App.css';
+import { useEffect } from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { useDispatch } from 'react-redux'
+import { checkUser } from './store/actions/userActions'
 import Navbar from './components/navigation/Navbar';
 import Home from './views/Home';
 import Products from './views/Products';
 import Details from './views/Details';
 import LoginView from './views/LoginView';
+import CheckOut from './views/CheckOut';
+
 
 function App() {
+
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(checkUser())
+  }, [dispatch])
+
   return (
     <BrowserRouter>
       <Navbar />
@@ -17,6 +28,7 @@ function App() {
           <Route exact path="/products" component={Products} />
           <Route exact path="/details/:id" component={Details} />
           <Route exact path="/login" component={LoginView} />
+          <Route exact path="/checkout" component={CheckOut} />
         </Switch>
       </div>
 

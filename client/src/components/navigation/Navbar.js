@@ -1,8 +1,17 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom';
 import ShoppingCart from '../shoppingCart/ShoppingCart';
+import { useSelector} from 'react-redux'
+import { logoutUser } from '../../store/actions/userActions';
+import { useDispatch } from 'react-redux'
+
 
 const Navbar = () => {
+
+  const dispatch = useDispatch()
+
+  let loggedIn = useSelector(state => state.user.loggedIn)
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-info">
@@ -45,10 +54,20 @@ const Navbar = () => {
                   <ShoppingCart />
                 </ul>
               </li>
+                
+              {loggedIn ?
+                <div>
+                <NavLink to="/home" className="btn btn-warning">Dashboard</NavLink>
+                <NavLink onClick={() => dispatch(logoutUser())} to="/home" className="btn btn-danger">sign out</NavLink>
+                </div>
+                : 
+                <NavLink to="/login" className="btn btn-warning">Login</NavLink>
+              }
 
 
             </ul>
           </div>
+
 
         </div>
       </nav>

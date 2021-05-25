@@ -1,15 +1,27 @@
 
 import {useRef} from 'react'
+import { loginUser } from '../../store/actions/userActions'
+import { useDispatch } from 'react-redux'
 
 
 const Login = () => {
 
  const email = useRef()
  const password = useRef()
+ const dispatch = useDispatch()
+
+ const handleSubmit = (e) => {
+   e.preventDefault()
+    let user = {
+      email: email.current.value,
+      password: password.current.value
+    }
+    dispatch(loginUser(user)) 
+ }
 
     return (
         <div>
-             <form>
+             <form onSubmit={handleSubmit}>
   
 
   

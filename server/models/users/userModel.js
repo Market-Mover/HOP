@@ -84,7 +84,8 @@ exports.loginUser = (req, res) => {
                 statusCode: 200,
                 status: true,
                 message: 'Authentication was successful',
-                token: auth.generateToken(user)
+                token: auth.generateToken(user),
+                id: user._id
               })
             }
             return res.status(401).json({
