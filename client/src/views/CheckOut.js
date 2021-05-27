@@ -1,6 +1,9 @@
 import React from 'react'
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { createOrder } from '../store/actions/orderActions'
 import CartProduct from '../components/shoppingCart/CartProduct';
+import { Link } from 'react-router-dom'
+
 
 
 const CheckOut = () => {
@@ -8,6 +11,14 @@ const CheckOut = () => {
   const shoppingCart = useSelector(state => state.cartReducer.shoppingCart);
   const totalCartAmount = useSelector(state => state.cartReducer.totalCartAmount);
   const totalCartQuantity = useSelector(state => state.cartReducer.totalCartQuantity)
+  const dispatch = useDispatch()
+  const id = sessionStorage.getItem('userId')
+
+  let order = {
+    id: id,
+    cart: shoppingCart 
+  }
+
 
     return (
         <div>
@@ -34,7 +45,9 @@ const CheckOut = () => {
           </div>
           <small className="text-muted">tax free FTW</small>
         </div>
-        <button className="btn btn-info">Checkout</button>
+        <Link to='/dashboard'>
+        <button onClick={()=>dispatch(createOrder(order))} className="btn btn-info">Checkout</button>
+        </Link>
       </div>
       
     </div>

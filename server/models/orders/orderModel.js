@@ -1,8 +1,34 @@
 const mongodb = require('mongoose');
-const orderSchema = require('./orderSchema');
 const Order = require('./orderSchema');
 
-exports.addOrder = (req, res) => {
+exports.createOrder = (req, res) => {
+
+  const order = new Order({
+    userId: req.body.id,
+    products: req.body.cart
+
+  })
+  console.log(order)
+  order.save()
+  .then(() =>{
+    res.status(201).json({
+      statusCode: 201,
+      status: true,
+      message: 'Product created'
+    })
+  })
+  .catch(() => {
+    res.status(500).json({
+      statusCode:500,
+      status: false,
+      message:'Failed to create'
+    })
+  })
+
+}
+
+
+exports.updateOrder = (req, res) => {
   
     Order.updateOne( { _id: req.params.id} , {
       ...req.body,
@@ -23,3 +49,15 @@ exports.addOrder = (req, res) => {
         })
       })
     }
+
+exports.getOrders = (req, res) => {
+
+  Order.find({userId: req.params.id})
+  .then(data => {
+    console.log(data)
+    return res.status(200).json(data)
+  })
+  .catch(err =>{
+    return res.status(500).json(err)
+  })
+}    

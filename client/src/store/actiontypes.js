@@ -16,6 +16,18 @@ const actiontypes = () => {
       check: 'CHECK_USER',
       logout: 'LOGOUT_USER'
 
+    },
+    order: {
+      createOrder: 'CREATE_ORDER',
+      getOrders: 'GET_ORDERS',
+      adminGet: 'ADMIN_GET',
+      toggleShipped: 'TOGGLE_SHIPPED'
+    },
+    
+    admin: {
+      setAdminUsers: 'SET_ADMIN_USERS',
+      setAdminUser: 'SET_ADMIN_USER',
+      deleteUser: 'DELETE_USER'
     }
 
   }

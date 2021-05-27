@@ -12,6 +12,7 @@ exports.getProducts= (req, res) => {
   })
 }
 
+
 exports.getOneProduct = (req, res) => {
   Product.findOne({ _id: req.params.id })
   .then(data => {

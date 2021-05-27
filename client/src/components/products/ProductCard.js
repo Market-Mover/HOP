@@ -22,7 +22,7 @@ const ProductCard = ({product}) => {
           <div className="card-text">
           <p>{ product.short }</p>
           <p className="text-danger h5">{ product.price }</p>
-          </div>
+        </div>
         </div>
           <Link to={`details/${product._id}`} className="btn m-1"> Details</Link>
           <button className="btn m-1 btn-info" onClick={() => {

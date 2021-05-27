@@ -17,6 +17,9 @@ export const loginUser = (user) => {
         console.log(res.data)
         sessionStorage.setItem('token', res.data.token)
         sessionStorage.setItem('userId', res.data.id)
+        if(res.data.isAdmin) {
+            sessionStorage.setItem('isAdmin', res.data.isAdmin)
+        }
         dispatch(setUser(res.data))
     }
 }
@@ -24,6 +27,7 @@ export const loginUser = (user) => {
 export const logoutUser = () => {
     sessionStorage.removeItem('token')
     sessionStorage.removeItem('userId')
+    sessionStorage.removeItem('isAdmin')
     return {
         type: actiontypes().user.logout,
         payload: false

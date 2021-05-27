@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux'
 const Navbar = () => {
 
   const dispatch = useDispatch()
+  const isAdmin = sessionStorage.getItem('isAdmin')
 
   let loggedIn = useSelector(state => state.user.loggedIn)
 
@@ -57,7 +58,12 @@ const Navbar = () => {
                 
               {loggedIn ?
                 <div>
-                <NavLink to="/home" className="btn btn-warning">Dashboard</NavLink>
+                {
+                  isAdmin ? <NavLink to="/admin" className="btn btn-warning">Admin</NavLink>
+                  : 
+                  <NavLink to="/dashboard" className="btn btn-warning">Dashboard</NavLink>
+                          
+                } 
                 <NavLink onClick={() => dispatch(logoutUser())} to="/home" className="btn btn-danger">sign out</NavLink>
                 </div>
                 : 
