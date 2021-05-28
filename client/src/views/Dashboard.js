@@ -10,41 +10,36 @@ const Dashboard = () => {
     const dispatch = useDispatch()
     const userId = sessionStorage.getItem('userId')
     const orders = useSelector(state => state.order.orders)
-
+    let shipped = orders? orders.filter(order => order.shipped):0  
+    console.log(shipped,'hej')
     useEffect(() => {
-        
-        dispatch(getOrders(userId))
+      
+      dispatch(getOrders(userId))
     }, [dispatch, userId])
-
+    
     return (
         <div>
             
             <div>
             
             <div>
+
         {
-        orders && orders.map(order => (
-            <OrderList key={order._id} order={order} />
-        )) 
+         
+         orders && orders.map(order => (
+             <OrderList key={order._id} order={order} />
+          ))
+         
         }
-      
-
-      {/* <div className="dropdown-divider"></div>
-
-      <div className="p-2 d-flex justify-content-between align-items-center">
-        <div>
-          <div className="total-price">
-            Total Price: <span>{totalCartAmount}</span>
-          </div>
-          <div>
-            Items <span>{totalCartQuantity} st</span>
-          </div>
-          <small className="text-muted">tax free FTW</small>
-        </div>
-        
-      </div> */}
-      
+            
     </div>
+    
+      {<div className="history">
+        
+        
+
+
+        </div>}
 
         </div>
 

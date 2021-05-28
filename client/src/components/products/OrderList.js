@@ -6,7 +6,7 @@ const OrderList = ({order}) => {
 
     return (
         <div className="d-flex border m-3 p-2 hover-shadow">
-            <p>{order._id}</p>
+            <p>OrderID: {order._id}</p>
             
             
         {
@@ -21,11 +21,14 @@ const OrderList = ({order}) => {
                 </div>
                 </div>
 
-        
+                
         </div>
+
             ))
         }
-
+        <div>
+       Order status: {order.shipped?'Shipped':'Pending'}
+        </div>
         </div>
     )
 }

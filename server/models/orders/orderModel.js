@@ -33,6 +33,7 @@ exports.updateOrder = (req, res) => {
     Order.updateOne( { _id: req.params.id} , {
       ...req.body,
       modified: Date.now()
+
     })
        .then(() => {
         res.status(200).json({
@@ -53,6 +54,18 @@ exports.updateOrder = (req, res) => {
 exports.getOrders = (req, res) => {
 
   Order.find({userId: req.params.id})
+  .then(data => {
+    console.log(data)
+    return res.status(200).json(data)
+  })
+  .catch(err =>{
+    return res.status(500).json(err)
+  })
+}  
+
+exports.getAdminOrders = (req, res) => {
+
+  Order.find()
   .then(data => {
     console.log(data)
     return res.status(200).json(data)

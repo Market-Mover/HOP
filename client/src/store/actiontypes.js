@@ -20,14 +20,15 @@ const actiontypes = () => {
     order: {
       createOrder: 'CREATE_ORDER',
       getOrders: 'GET_ORDERS',
-      adminGet: 'ADMIN_GET',
-      toggleShipped: 'TOGGLE_SHIPPED'
+      getAdminOrders: 'ADMIN_GET',
     },
     
     admin: {
+      toggleShipped: 'TOGGLE_SHIPPED',
       setAdminUsers: 'SET_ADMIN_USERS',
       setAdminUser: 'SET_ADMIN_USER',
-      deleteUser: 'DELETE_USER'
+      deleteUser: 'DELETE_USER',
+      setAdminOrders: 'SET_ADMIN_ORDERS'
     }
 
   }
