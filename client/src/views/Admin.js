@@ -1,22 +1,32 @@
-import {useEffect} from 'react'
+import {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {getAdminOrders, toggleShipped} from '../store/actions/adminActions'
+import AdminUsers from '../components/admin/AdminUsers'
+
 
 
 const Admin = () => {
     const dispatch = useDispatch()
     useEffect(()=>{
         dispatch(getAdminOrders())
+        
     },[dispatch])
 
     let adminOrders = useSelector(state => state.admin.adminOrders)
+    const [toggle, setToggle] = useState(false)
 
     return (
+        
         <div>
-            
-            {
-                adminOrders && adminOrders.map(order => (
 
+            <button onClick={() => setToggle(!toggle)}> Administer {toggle ? 'Orders' : 'Users'}</button>
+            {
+                toggle ?
+                <AdminUsers />:
+                               
+                
+                adminOrders && adminOrders.map(order => (
+                    
                     <div className="d-flex border m-3 p-2 hover-shadow">
                     <div>
                     <p>OrderID: {order._id}</p> 

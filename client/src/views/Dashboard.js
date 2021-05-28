@@ -18,32 +18,39 @@ const Dashboard = () => {
     }, [dispatch, userId])
     
     return (
+      <div>
+        
+           <h3>Active orders</h3> 
         <div>
             
-            <div>
-            
-            <div>
+          <div>
 
-        {
-         
-         orders && orders.map(order => (
-             <OrderList key={order._id} order={order} />
-          ))
-         
+            {
+          orders && orders.map(order => {
+            if(!order.shipped) {
+              return <OrderList key={order._id} order={order} />
+            }
+          })
         }
             
-    </div>
-    
-      {<div className="history">
+        </div>
+          <h3>History</h3>
+      <div className="history bg-dark pt-3 text-muted">
         
-        
+        {
+          orders && orders.map(order => {
+            if(order.shipped) {
+              return <OrderList key={order._id} order={order} />
+            }
+          })
+        }
 
 
-        </div>}
+         </div>
 
         </div>
-
-        </div>
+          
+      </div>
     )
 }
 

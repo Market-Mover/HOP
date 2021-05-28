@@ -28,7 +28,9 @@ const actiontypes = () => {
       setAdminUsers: 'SET_ADMIN_USERS',
       setAdminUser: 'SET_ADMIN_USER',
       deleteUser: 'DELETE_USER',
-      setAdminOrders: 'SET_ADMIN_ORDERS'
+      setAdminOrders: 'SET_ADMIN_ORDERS',
+      getAdminUsers: 'GET_ADMIN_USERS'
+      
     }
 
   }

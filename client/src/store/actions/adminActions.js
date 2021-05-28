@@ -24,3 +24,24 @@ export const toggleShipped = (id, boolean) => {
          dispatch(getAdminOrders())
     }
 }
+
+export const getAdminUsers = () => {
+    return async dispatch => {
+        const res = await axios.get('http://localhost:9999/api/users')
+        dispatch(setAdminUsers(res.data))
+    }
+} 
+
+export const setAdminUsers = (users) => {
+    return {
+        type: actiontypes().admin.setAdminUsers, 
+        payload: users
+    }
+}
+
+export const deleteUser = (id) => {
+    return async dispatch => {
+        await axios.delete(`http://localhost:9999/api/users/${id}`)
+        dispatch(getAdminUsers())
+    }
+}

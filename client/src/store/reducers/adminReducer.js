@@ -13,6 +13,11 @@ const adminReducer = (state = initState, action) => {
                 ...state,
                 adminOrders: action.payload
             }
+        case actiontypes().admin.setAdminUsers:
+            return {
+                ...state,
+                adminUsers: action.payload
+            }    
         
         default:
             return state

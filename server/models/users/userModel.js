@@ -129,36 +129,32 @@ exports.updateUser = (req, res) => {
       })
     })
   }
-  exports.saveOrder = (req, res) => {
-    User.findOne({email: req.body.email})
-    .then(user => {
-      //Söker user utifrån email, pushar order till arrayen orders i usern
-        user.orders.push(req.body.order)
-        user.save(user)
-        
+  
+  //Hämtar alla user 
+  exports.getUsers = (req, res) => {
+    User.find()
+    .then(users => {
+      return res.status(200).json(users)
     })
+    .catch(err => {
+      return res.status(500).json(err)
+    })
+  }
+
+  exports.deleteUser = (req, res) => {
+    User.deleteOne({_id: req.params.id})
     .then(() => {
       res.status(200).json({
-        statusCode:200,
+        statusCode: 200,
         status: true,
-        message: 'Order placed successfully'
+        message: 'User deleted'
       })
     })
     .catch(() => {
       res.status(500).json({
-        statusCode:500,
+        statusCode: 500,
         status: false,
-        message: 'Failed to place order'
+        message: 'Failed to delete a user'
       })
-    })
-  }
-  //Hämtar en user vi sedan hämtar order ur
-  exports.getOrder = (req, res) => {
-    User.findOne({email: req.body.email })
-    .then(user => {
-      return res.status(200).json(user)
-    })
-    .catch(err => {
-      return res.status(500).json(err)
     })
   }

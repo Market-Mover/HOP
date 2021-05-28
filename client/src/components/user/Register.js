@@ -1,6 +1,7 @@
 import {useRef} from 'react'
 import {useDispatch} from 'react-redux'
 import {registerUser} from '../../store/actions/userActions'
+import {useHistory} from 'react-router-dom'
 
 const Register = () => {
 
@@ -10,6 +11,7 @@ const Register = () => {
  const lastName = useRef()
  const email = useRef()
  const password = useRef()
+ const history = useHistory()
 
  const handleSubmit = (e) => {
    e.preventDefault()
@@ -21,6 +23,7 @@ const Register = () => {
    }
   //  console.log(user)
    dispatch(registerUser(user))
+   history.push('/')
 
  }
 

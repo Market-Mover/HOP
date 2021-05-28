@@ -1,4 +1,4 @@
-
+import {useHistory} from 'react-router-dom'
 import {useRef} from 'react'
 import { loginUser } from '../../store/actions/userActions'
 import { useDispatch } from 'react-redux'
@@ -8,7 +8,9 @@ const Login = () => {
 
  const email = useRef()
  const password = useRef()
+ const history = useHistory()
  const dispatch = useDispatch()
+
 
  const handleSubmit = (e) => {
    e.preventDefault()
@@ -17,6 +19,7 @@ const Login = () => {
       password: password.current.value
     }
     dispatch(loginUser(user)) 
+    history.push('/')
  }
 
     return (
