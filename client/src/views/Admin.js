@@ -1,3 +1,4 @@
+import './View.css'
 import {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {getAdminOrders, toggleShipped} from '../store/actions/adminActions'
@@ -17,7 +18,7 @@ const Admin = () => {
 
     return (
         
-        <div>
+        <div className="Admin">
 
             <button onClick={() => setToggle(!toggle)}> Administer {toggle ? 'Orders' : 'Users'}</button>
             {

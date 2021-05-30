@@ -28,13 +28,13 @@ const Login = () => {
   
 
   
-  <div className="form-outline mb-4">
+  <div className="border form-outline mb-4 p-3">
     <input type="email" id="form3Example3" className="form-control" ref={email} />
     <label className="form-label" for="form3Example3">Email address</label>
   </div>
 
   
-  <div className="form-outline mb-4">
+  <div className="border form-outline mb-4 p-3">
     <input type="password" id="form3Example4" className="form-control" ref={password}/>
     <label className="form-label" for="form3Example4">Password</label>
   </div>

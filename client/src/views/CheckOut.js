@@ -1,4 +1,5 @@
 import React from 'react'
+import './View.css'
 import { useSelector, useDispatch } from 'react-redux';
 import { createOrder } from '../store/actions/orderActions'
 import CartProduct from '../components/shoppingCart/CartProduct';
@@ -23,7 +24,7 @@ const CheckOut = () => {
     return (
         <div>
             
-            <div>
+            <div className="checkOut">
       {
         shoppingCart && shoppingCart.map(product => (
           <CartProduct key={product._id} product={product} />

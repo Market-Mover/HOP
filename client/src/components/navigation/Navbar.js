@@ -1,4 +1,4 @@
-import React from 'react'
+import './Navbar.css'
 import { Link, NavLink } from 'react-router-dom';
 import ShoppingCart from '../shoppingCart/ShoppingCart';
 import { useSelector} from 'react-redux'
@@ -15,9 +15,9 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-info">
+      <nav className="navbar navbar-expand-lg bg-dark navbar-light ">
         <div className="container">
-          <Link className="navbar-brand" to="/">LOGO</Link>
+          <Link className="navbar-brand text-white" to="/"><img src="https://www.123webshop.co.za/images/123webshop-logo.png" alt="Logo"  /></Link>
 
           <button
             className="navbar-toggler"
@@ -34,10 +34,10 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbar-links">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <NavLink exact className="nav-link" to="/">Home</NavLink>
+                <NavLink exact className="nav-link text-white" to="/">Home</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink exact className="nav-link" to="/products">Products</NavLink>
+                <NavLink exact className="nav-link text-white" to="/products">Products</NavLink>
               </li>
 
 

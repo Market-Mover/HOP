@@ -1,3 +1,4 @@
+import './View.css'
 import {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {getOrders} from '../store/actions/orderActions'
@@ -18,14 +19,15 @@ const Dashboard = () => {
     }, [dispatch, userId])
     
     return (
-      <div>
+      <div >
         
            <h3>Active orders</h3> 
-        <div>
+        <div className="Dash">
             
           <div>
-
-            {
+         
+            
+            {           
           orders && orders.map(order => {
             if(!order.shipped) {
               return <OrderList key={order._id} order={order} />

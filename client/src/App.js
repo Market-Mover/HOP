@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
 import { checkUser } from './store/actions/userActions'
 import Navbar from './components/navigation/Navbar';
+import Footer from './components/navigation/Footer'
 import Home from './views/Home';
 import Products from './views/Products';
 import Details from './views/Details';
@@ -35,6 +36,8 @@ function App() {
           <Route exact path="/admin" component={Admin} />
         </Switch>
       </div>
+
+      <Footer />
 
     </BrowserRouter>
   );

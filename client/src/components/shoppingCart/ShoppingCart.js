@@ -32,7 +32,7 @@ const ShoppingCart = () => {
       <div className="p-2 d-flex justify-content-between align-items-center">
         <div>
           <div className="total-price">
-            Total Price: <span>{totalCartAmount}</span>
+            Total Price: <span>{totalCartAmount} kr</span>
           </div>
           <div>
             Items <span>{totalCartQuantity} st</span>
